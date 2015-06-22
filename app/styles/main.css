@@ -1,0 +1,158 @@
+body {
+    margin: 0;
+    font-family: consolas;
+    font-size: 1.2em;
+}
+
+.center-box {
+    padding: 15px 50px 15px 50px;
+    text-align: center;
+}
+
+.full-screen {
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.img {
+   padding:1px;
+   border:2px solid #021a40;
+    -webkit-box-shadow: 9px 10px 5px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 9px 10px 5px -2px rgba(0,0,0,0.75);
+    box-shadow: 9px 10px 5px -2px rgba(0,0,0,0.75);
+}
+
+.one-edge-shadow {
+	-webkit-box-shadow: 0 8px 6px -6px black;
+	   -moz-box-shadow: 0 8px 6px -6px black;
+	        box-shadow: 0 8px 6px -6px black;
+}
+
+/*.dividing-line :not(:last-child) {*/
+    /*border-bottom: 4px;*/
+    /*border-bottom-style: solid;*/
+    /*border-bottom-color: black;*/
+/*}*/
+
+.dividing-line {
+    border-bottom: 4px;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+}
+
+
+/**************************************************
+ *------------------- Fonts ----------------------*
+ *************************************************/
+.center-align {
+    text-align: center;
+    line-height: 50px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.front-name-text {
+    font-weight: bold;
+    text-align: center;
+    height: 55px;
+    line-height: 55px;
+    font-size: 1.5em;
+}
+
+.back-name-text {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.abilities-text {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+
+/*************************************************
+ *--------------- Backgrounds -------------------*
+ *************************************************/
+.purple-bg {
+    background-color: purple;
+    border-radius: 10px;
+}
+
+.container-border {
+    border-style: solid;
+    border-width: 8px;
+    border-color: dimgrey;
+}
+
+.rounded-corners {
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+}
+
+.yellow-bg {
+  background-color: yellow;
+}
+
+.back-btn, .next-btn {
+    font-weight: bold;
+    background: -webkit-linear-gradient(rgb(255,197,120) 0%, rgb(251,157,35) 100%);
+    background: -o-linear-gradient(rgb(255,197,120) 0%, rgb(251,157,35) 100%);
+    background: linear-gradient(rgb(255,197,120) 0%, rgb(251,157,35) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffc578', endColorstr='#fb9d23',GradientType=0 );   
+}
+
+
+/************************************************
+*- Color change based on the 'type' of Pokemon -*
+*************************************************/
+.black-bg {
+    background-color: black;
+}
+
+.white-bg {
+    background-color: white;
+}
+
+.grey-bg {
+    background-color: grey;
+}
+
+.blue-bg {
+    background-color: blue;
+}
+
+.red-bg {
+    background-color: red;
+}
+.green-bg {
+    background-color: green;
+}
+
+.brown-bg {
+    background-color: sandybrown;
+}
+
+.dark-white-bg {
+    background-color: whitesmoke;
+}
+
+.dark-brown-bg {
+    background-color: brown;
+}
+
+.pink-bg {
+    background-color: deeppink;
+}
+
+transparent-bg{
+    zoom: 1;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+}
+

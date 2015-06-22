@@ -1,0 +1,254 @@
+<fa-app class="full-screen" ng-controller="PokemonCtrl"> 
+
+	<!-- Container for Main Page -->
+	<fa-view fa-pipe-from="evt">
+	<fa-flipper id="flipper">
+	
+		<!-- Header -->
+<!--		<fa-surface fa-size="[undefined, 50]" fa-background-color="'Blue'" class="center-align">Header</fa-surface>-->
+
+    <!-- Holds multiple surfaces (Buttons, image, name, etc) -->
+    <fa-view id="front-surface" fa-pipe-to="evt">
+
+        <!-- Name-->
+        <fa-modifier
+            fa-origin    ="origin.center"
+            fa-align     ="align.frontName"
+            fa-size      ="size.frontName"
+            fa-translate ="trans.topLayer">
+            <fa-surface
+                class    ="front-name-text">
+                {{name}}
+            </fa-surface>
+        </fa-modifier>
+
+        <!-- Image -->
+        <fa-modifier
+           fa-origin      ="origin.center"
+           fa-align       ="align.frontImg"
+           fa-size        ="size.img"
+           fa-scale       ="scale.imgFront.get()"
+           fa-translate   ="trans.topLayer"
+           fa-opacity     ="opac.imgFront">
+           <fa-image-surface
+             fa-image-url ="{{imageUrl}}"
+             class        ="img">
+           </fa-image-surface>
+        </fa-modifier>
+
+        <!-- More Info button -->
+        <fa-modifier
+            fa-origin    ="origin.center"
+            fa-align     ="align.infoBtn"
+            fa-size      ="size.btn"
+            fa-scale     ="scale.infoBtn.get()"
+            fa-translate ="trans.topLayer" >
+            <fa-surface
+                class    ="one-edge-shadow center-align next-btn"
+                ng-click ="infoBtnPressAnim(); flip()">
+                {{infoBtnText}}
+            </fa-surface>
+        </fa-modifier>
+
+        <!-- Next button -->
+        <fa-modifier
+            fa-origin    ="origin.center"
+            fa-align     ="align.nextBtn"
+            fa-size      ="size.btn"
+            fa-scale     ="scale.nextBtn.get()"
+            fa-translate ="trans.topLayer">
+            <fa-surface
+                class    ="one-edge-shadow center-align next-btn"
+                ng-click ="getPokemon(); nextBtnPressAnim(); frontImgAnim()">
+                {{nextBtn}}
+            </fa-surface>
+        </fa-modifier>
+
+        <!-- Colored background -->
+        <fa-modifier
+                fa-origin    ="origin.center"
+                fa-translate ="trans.colorBg"
+                fa-scale     ="scale.colorBg"
+                fa-opacity   ="opac.colorBg">
+            <fa-surface
+                id       ="colored-bg-front"
+                class    ="container-border box-shadow rounded-corners transparent-bg green-bg">
+            </fa-surface>
+        </fa-modifier>
+
+
+        <!-- Metal background -->
+        <fa-modifier
+                fa-origin       ="origin.center"
+                fa-translate    ="trans.textureBg"
+                fa-scale        ="scale.textureBg">
+            <fa-image-surface
+                    class        ="rounded-corners"
+                    fa-image-url ="{{bgImgUrl}}">
+            </fa-image-surface>
+        </fa-modifier>
+
+
+        <!-- Yellow background-->
+        <fa-modifier
+                fa-origin ="origin.center"
+                fa-size   ="[undefined, undefined]">
+            <fa-surface
+                    class ="yellow-bg">
+            </fa-surface>
+        </fa-modifier>
+
+
+    </fa-view>
+
+<!-- Footer -->
+<!--	<fa-surface fa-size="[undefined, 50]" fa-background-color="'Yellow'" class="centerAlign">Footer</fa-surface>-->
+
+
+    <!-- Holds multiple surfaces (Buttons, image, name, etc) -->
+    <fa-view id="back-surface" fa-pipe-to="evt">
+
+
+		<!-- Types & Image -->
+        <fa-modifier
+                fa-origin    ="origin.topLeft"
+                fa-align     ="align.typeImg"
+                fa-size      ="size.imgType"
+                fa-scale     ="scale.imgType"
+                fa-translate ="trans.topLayer">
+            <fa-image-surface
+                fa-image-url ="{{imageTypeUrl}}">
+            </fa-image-surface>
+        </fa-modifier>
+
+		<fa-modifier
+			fa-align         ="align.typeText"
+			fa-size          ="size.types"
+			fa-translate     ="trans.topLayer">
+			<fa-surface
+                class        ="bold">
+				{{types.name}}
+			</fa-surface>			
+		</fa-modifier>
+
+
+        <!-- Hit Points -->
+        <fa-modifier
+                fa-align     ="align.hitPoints"
+                fa-size      ="size.hitPoints"
+                fa-translate ="trans.topLayer">
+            <fa-surface>
+                {{hp}}  {{hitPoints}}
+            </fa-surface>
+        </fa-modifier>
+
+
+        <!-- Name  & Image -->
+        <!-- Name -->
+        <fa-modifier
+            fa-origin     ="origin.topLeft"
+            fa-align      ="align.backName"
+            fa-size       ="size.name"
+            fa-translate  ="trans.topLayer">
+            <fa-surface
+                class     ="back-name-text">
+                {{name}}
+            </fa-surface>
+        </fa-modifier>
+        </fa-modifier>
+
+        <!-- Image -->
+        <fa-modifier
+         fa-origin        ="origin.center"
+         fa-align         ="align.backImg"
+         fa-size          ="size.img"
+         fa-translate     ="trans.topLayer"
+         fa-scale         ="scale.imgBack">
+         <fa-image-surface
+             fa-image-url ="{{imageUrl}}"
+             class        ="img">
+         </fa-image-surface>
+        </fa-modifier>
+
+
+        <!-- Abilities -->
+        <fa-modifier
+            fa-origin    ="origin.topLeft"
+            fa-align     ="align.abilHeader"
+            fa-translate ="trans.topLayer">
+            <fa-surface
+                class    ="abilities-text">
+                Abilities:
+            </fa-surface>
+        </fa-modifier>
+
+		<fa-modifier
+			fa-origin    ="align.abilText"
+			fa-size      ="size.abilities"
+			ng-repeat    ="ability in abilities"
+			fa-translate ="[0, offsetY * $index, topLayerZ]">
+			<fa-surface 
+				class    ="bold diving-line">
+                {{ability.name}}
+			</fa-surface>			
+		</fa-modifier>
+
+
+        <!-- Back btn -->
+        <fa-modifier
+            fa-origin      ="origin.center"
+            fa-align       ="align.backBtn"
+            fa-size        ="size.btn"
+            fa-translate   ="trans.topLayer"
+            fa-scale       ="scale.backBtn.get()">
+            <fa-surface
+                class      ="center-align"
+                ng-click   ="backBtnPressAnim(); flip()">
+                <div
+                    class  ="one-edge-shadow back-btn">
+                {{backBtn}}
+                </div>
+            </fa-surface>
+        </fa-modifier>
+
+
+        <!-- Colored background -->
+        <fa-modifier
+                fa-origin    ="origin.center"
+                fa-translate ="trans.colorBg"
+                fa-scale     ="scale.colorBg"
+                fa-opacity   ="opac.colorBg">
+            <fa-surface
+                    id       ="colored-bg-back"
+                    class    ="container-border box-shadow rounded-corners transparent-bg green-bg">
+            </fa-surface>
+        </fa-modifier>
+
+
+        <!-- Metal background -->
+        <fa-modifier
+                fa-origin       ="origin.center"
+                fa-translate    ="trans.textureBg"
+                fa-scale        ="scale.textureBg">
+            <fa-image-surface
+                    class        ="rounded-corners"
+                    fa-image-url ="{{bgImgUrl}}">
+            </fa-image-surface>
+        </fa-modifier>
+
+
+        <!-- Yellow background-->
+        <fa-modifier
+                fa-origin ="origin.center"
+                fa-size   ="[undefined, undefined]">
+            <fa-surface
+                    class ="yellow-bg">
+            </fa-surface>
+        </fa-modifier>
+		
+
+     </fa-view> <!-- /Back -->
+		
+	</fa-flipper>	
+	</fa-view>
+</fa-app>
