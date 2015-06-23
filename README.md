@@ -105,6 +105,9 @@ You may notice that I also have a few other functions here, such as *capitalizeF
   
   var firstType     = data.types[0].name;
   ```
+  
+  
+  #### Drawing it to the screen
 
 
 ----------
