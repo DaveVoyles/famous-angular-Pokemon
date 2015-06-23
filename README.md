@@ -36,7 +36,76 @@ My goal for this project to illustrate how easily you can create HTML5 / JS proj
 
 ### How it works
 
-I pull all of the information from the [PokeAPI](http://pokeapi.co/), which has a well documented API, but it's missing images for each of the pokemon. For the images, I just pull the name of the currently chosen pokemon and appending it to the end of this URL: *http://img.pokemondb.net/artwork/*. For example:[http://img.pokemondb.net/artwork/venusaur.jpg](http://img.pokemondb.net/artwork/venusaur.jpg) will lead you to an image of Vanosaur. Nifty, right?
+#### Hitting the database
+I pull all of the information from the [PokeAPI](http://pokeapi.co/), which has a well documented API, but it's missing images for each of the pokemon. For the images, I just pull the name of the currently chosen pokemon and appending it to the end of this URL: *http://img.pokemondb.net/artwork/*. For example:[http://img.pokemondb.net/artwork/venusaur.jpg](http://img.pokemondb.net/artwork/venusaur.jpg) will lead you to an image of Vanosaur. Nifty, right? Sadly, they do not have an API available. 
+
+Each time the user presses the **Next** button, a random number is generated between a min / max value that I've defined (say, 1-20), and it pulls a pokemon from the database which matches that number. Here's what it looks like:
+
+*http://pokeapi.co/api/v1/pokemon/1/* returns a JSON object for Bulbasaur. [You can play wit htheir API here.](http://pokeapi.co/)
+
+#### Looping through the data
+
+I then loop through that JSON object and set the properties I find there to variables in Angular, using the $Scope object. 
+
+Here's an example:
+
+```javascript
+  /*
+   * Grab Pokemon from the DB
+   */
+  $scope.getPokemon = function () {  
+    
+    // Generate a random num and use it for the next pokemon
+    getRandomInt($scope.minVal, $scope.maxVal);
+    
+    // Retrieve data from DB and draw it to screen
+    $http.get($scope.dbURL + $scope.pokemonNum + "/")
+      .success(function(data) {
+        $scope.name       = data.name;
+        $scope.imageUrl   = $scope.imgDbURL + $scope.name.toLowerCase() + '.jpg';
+
+        /* 1) Empty out the current array to store the new items in there
+         * 2) Capitalize the first character for each ability from the database
+         * 3) Store that ability in a new abilityObj & add it into the abilities array
+         */
+        $scope.abilities.length = 0;
+        for (var i = 0; i < data.abilities.length; i++){
+         var capitalizedString = capitalizeFirstLetter(data.abilities[i].name);
+         var abilityObj        = {name: capitalizedString };
+          $scope.abilities.push(abilityObj);
+        }
+
+        $scope.hitPoints  = data. hp;
+        var firstType     = data.types[0].name;
+        $scope.types.name = capitalizeFirstLetter(firstType);
+        determineNewBgColor();
+      })
+      .error(function(status){
+        console.log(status);
+        $scope.name = "Couldn't get Pokemon from the DB";
+      });
+  };
+  ```
+  
+You may notice that I also have a few other functions here, such as *capitalizeFirstLetter*, which does exactly that. I wanted the abilities and type (ex: poison, grass, flying) to have have the first letter capitalized, since it comes back from the database in all lowercase characters. 
+  
+  I also loop through the abilities and push them to an ability object, which looks like this:
+  
+  ```javascript
+   $scope.abilities       = [
+    { name: "Sleep"},
+    { name: "Eat"  }
+  ];
+  ```
+  
+  The databse also returns multiple types for certain pokemon, such as Charizard, who is flying as well as fire. To keep things simple though, I only wanted to return one from the database. 
+  
+  ```javascript
+  $scope.types           = { name: "Grass" }        ;
+  
+  var firstType     = data.types[0].name;
+  ```
+
 
 ----------
 ## Resources
