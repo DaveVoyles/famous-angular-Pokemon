@@ -34,6 +34,10 @@ My goal for this project to illustrate how easily you can create HTML5 / JS proj
 1. Start your web server
 2. Navigate to **famous-angular-Pokemon/app/**
 
+### How it works
+
+I pull all of the information from the [PokeAPI](http://pokeapi.co/), which has a well documented API, but it's missing images for each of the pokemon. For the images, I just pull the name of the currently chosen pokemon and appending it to the end of this URL: *http://img.pokemondb.net/artwork/*. For example:[http://img.pokemondb.net/artwork/venusaur.jpg](http://img.pokemondb.net/artwork/venusaur.jpg) will lead you to an image of Vanosaur. Nifty, right?
+
 ----------
 ## Resources
 
