@@ -27,7 +27,7 @@ My goal for this project to illustrate how easily you can create HTML5 / JS proj
 
 ### Setup
  1.  Download the source [from GitHub](https://github.com/DaveVoyles/famous-angular-Pokemon)
- 2.  Download & install a web server ([I use MAMP on OS X, or the built-in IIS server with Visual Studio on Windows]) (https://www.mamp.info/en/)
+ 2.  Download & install a web server [(I use MAMP on OS X, or the built-in IIS server with Visual Studio on Windows)] (https://www.mamp.info/en/)
 
 
 ### Opening the project
