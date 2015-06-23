@@ -32,7 +32,8 @@ My goal for this project to illustrate how easily you can create HTML5 / JS proj
 
 ### Opening the project
 1. Start your web server
-2. Navigate to *famous-angular-Pokemon/app/*
+2. Navigate to **famous-angular-Pokemon/app/**
+
 ----------
 ## Resources
 
