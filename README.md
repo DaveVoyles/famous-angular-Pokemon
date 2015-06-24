@@ -6,7 +6,9 @@ Sample project for using Famo.us + Angular to create a mobile application
 ----------
 ### Objective
 
-I love high performance JavaScript, and have faith that others will finally come around and understand its true potential someday too. Famo.us allows you to maintain a silky smooth 60 Frames Per Second while having fluid animations on screen. Famo.us does this by utilizing the CSS3 primitive -webkit-transform: matrix3d, which lets the framework compute the composite matrix and skip the browser’s renderer. No plug-in, no download, no hack. By appending this to each DIV, developers can render the composite matrix and go straight to the GPU.
+I love high performance JavaScript, and have faith that others will finally come around and understand its true potential someday too. Famo.us allows you to maintain a silky smooth 60 Frames Per Second while having fluid animations on screen. Famo.us does this by utilizing the CSS3 primitive -webkit-transform: matrix3d, which lets the framework compute the composite matrix and skip the browser’s renderer. No plug-in, no download, no hack. By appending this to each DIV, developers can render the composite matrix and go straight to the GPU. 
+
+Thanks again to [Zack Brown](https://twitter.com/zackaboo) for all of your assistance with this!
 
 By the end of this project you will be able to:
 
@@ -34,6 +36,7 @@ My goal for this project to illustrate how easily you can create HTML5 / JS proj
 1. Start your web server
 2. Navigate to **famous-angular-Pokemon/app/**
 
+---------
 ### How it works
 
 #### Hitting the database
@@ -161,8 +164,8 @@ A surface's location on the screen. When you make changes to the alignment, it i
     center:                [0.50,    0.50]
   };
   ```
-  ### Where Angular finally comes in
-  Now here's where you can put all of your angular skills and databinding to work with the Angular implementation here. If you're already experienced with Angular, then it's not radically different here. 
+### Where Angular finally comes in
+Now here's where you can put all of your angular skills and databinding to work with the Angular implementation here. If you're already experienced with Angular, then it's not radically different here. 
   
   ```html
        <!-- Next button -->
@@ -205,13 +208,14 @@ angular.module('famousAngularStarter')
 ----------
 I ran into a few issues a long the way.
 
-1. FA-Directies have their properties set as strings
+- *FA-Directies have their properties set as strings*
 ```html
  fa-origin    ="origin.center"
 ```
 If you have a spelling error, the app will just use the default values for that property. This snagged me several times, which is why you see I set all of my properties as an object, such as *align.frontName*, to make it easier to read. 
 
-2. Adding classes
+
+- *Adding classes*
 In FA-Directives you add multiple classes as strings, and they are NOT comma separated.
 ```html
             <fa-surface
@@ -231,7 +235,8 @@ If you try to add classes by creating surfaces in JavaScript, you pass in an arr
 ```
 It took me a while to understand that, as I only found the solution [in this thread.](https://github.com/Famous/famous-angular/issues/150)
 
-3. Famo.us + Angular seems to be depreicated (for now)
+
+- *Famo.us + Angular seems to be depreicated (for now)*
 Midway through this project I saw that Famo.us was working on an improved version of the framework which includes [Mixed Mode.](http://famous.org/) Famous + Angular doesn't take advantage of these aditions (yet) at least. That doesn't mean FA is going anywhere, as it works perfectly fine, just that you won't get getting the latest features.  
 
 
