@@ -116,7 +116,7 @@ You may notice that I also have a few other functions here, such as *capitalizeF
   The databse also returns multiple types for certain pokemon, such as Charizard, who is flying as well as fire. To keep things simple though, I only wanted to return one from the database. 
   
   ```javascript
-  $scope.types      = { name: "Grass" }        ;
+  $scope.types      = { name: "Grass" };
   
   var firstType     = data.types[0].name;
   ```
