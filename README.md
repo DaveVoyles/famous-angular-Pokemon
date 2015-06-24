@@ -247,14 +247,16 @@ What would a high performance app be without animations? Famo.us is packed with 
 ----------
 I ran into a few issues a long the way.
 
-- *FA-Directies have their properties set as strings*
+- **FA-Directies have their properties set as strings**
+
 ```html
  fa-origin    ="origin.center"
 ```
 If you have a spelling error, the app will just use the default values for that property. This snagged me several times, which is why you see I set all of my properties as an object, such as *align.frontName*, to make it easier to read. 
 
 
-- *Adding classes*
+- **Adding classes**
+
 In FA-Directives you add multiple classes as strings, and they are NOT comma separated.
 ```html
             <fa-surface
@@ -275,7 +277,8 @@ If you try to add classes by creating surfaces in JavaScript, you pass in an arr
 It took me a while to understand that, as I only found the solution [in this thread.](https://github.com/Famous/famous-angular/issues/150)
 
 
-- *Famo.us + Angular seems to be depreicated (for now)*
+- **Famo.us + Angular seems to be depreicated (for now)**
+
 Midway through this project I saw that Famo.us was working on an improved version of the framework which includes [Mixed Mode.](http://famous.org/) Famous + Angular doesn't take advantage of these aditions (yet) at least. That doesn't mean FA is going anywhere, as it works perfectly fine, just that you won't get getting the latest features.  
 
 
