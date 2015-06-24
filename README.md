@@ -10,7 +10,7 @@ I love high performance JavaScript, and have faith that others will finally come
 
 Thanks again to [Zack Brown](https://twitter.com/zackaboo) for all of your assistance with this!
 
-By the end of this project you will be able to:
+### By the end of this project you will be able to:
 
 - Understand how Angular works within the context of a Famo.us application
 - Harness the true power of JavaScript and the good parts of HTML5
