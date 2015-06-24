@@ -154,13 +154,52 @@ A surface's location on the screen. When you make changes to the alignment, it i
 
 ```javascript
   $scope.align          =  {
-                          // X                          Y 
-    frontName:             [0.50,                     0.10],
-    frontImg:              [0.50,                     0.40],
-    backImg:               [0.5,                      0.38],
-    center:                [0.50,                     0.50]
+                          // X        Y 
+    frontName:             [0.50,    0.10],
+    frontImg:              [0.50,    0.40],
+    backImg:               [0.5,     0.38],
+    center:                [0.50,    0.50]
   };
   ```
+  ### Where Angular finally comes in
+  Now here's where you can put all of your angular skills and databinding to work with the Angular implementation here. If you're already experienced with Angular, then it's not radically different here. 
+  
+  ```html
+       <!-- Next button -->
+        <fa-modifier
+            fa-origin    ="origin.center"
+            fa-align     ="align.nextBtn"
+            fa-size      ="size.btn"
+            fa-scale     ="scale.nextBtn.get()"
+            fa-translate ="trans.topLayer">
+            <fa-surface
+                class    ="one-edge-shadow center-align next-btn"
+                ng-click ="getPokemon(); nextBtnPressAnim(); frontImgAnim()">
+                {{nextBtn}}
+            </fa-surface>
+        </fa-modifier>
+```
+
+This button appears on the first screen and simply pulls another pokemon frmo the database. All of the ng (angular) directives you are familar with are here, such as *ng-click.* I have multiple functions here (NOTICE: They are not comma separated). 
+
+I am also binding the value of *$scope.nextBtn* to *{{nextBTn}}* in  HTML. 
+
+To allow Famo.us and Angular to work together, we need to include $Famo.us at the top of our javascript file. Here's how you do it:
+
+```javascript
+angular.module('famousAngularStarter')
+  .controller('PokemonCtrl', ['$scope', '$http', '$famous', function ($scope, $http, $famous) {
+          
+    /* Inject famo.us to DOM */
+    var View           = $famous['famous/core/View'                 ];
+    var Modifier       = $famous['famous/core/Modifier'             ];
+    var Surface        = $famous['famous/core/Surface'              ];
+    var Transform      = $famous['famous/core/Transform'            ];
+    var Transitionable = $famous['famous/transitions/Transitionable'];
+    var Timer          = $famous['famous/utilities/Timer'           ];
+```
+  
+  
 
 ## Points of frustration
 ----------
@@ -190,7 +229,11 @@ If you try to add classes by creating surfaces in JavaScript, you pass in an arr
         classes: ['backfaceVisibility, class-two'] 
     });
 ```
-It took me a while to understand that, as I only found the solution [in this thread].(https://github.com/Famous/famous-angular/issues/150)
+It took me a while to understand that, as I only found the solution [in this thread.](https://github.com/Famous/famous-angular/issues/150)
+
+3. Famo.us + Angular seems to be depreicated (for now)
+Midway through this project I saw that Famo.us was working on an improved version of the framework which includes [Mixed Mode.](http://famous.org/) Famous + Angular doesn't take advantage of these aditions (yet) at least. That doesn't mean FA is going anywhere, as it works perfectly fine, just that you won't get getting the latest features.  
+
 
 ----------
 ## Resources
