@@ -14,6 +14,7 @@ I go more in depth when discussing the ins-and-outs of Famo.us in an [earlier bl
 
 - Understand how Angular works within the context of a Famo.us application
 - Harness the true power of JavaScript and the good parts of HTML5
+- Create smooth animations 
 
 My goal for this project to illustrate how easily you can create HTML5 / JS projects which work at near native speeds on mobile applications. 
 
@@ -206,7 +207,34 @@ angular.module('famousAngularStarter')
     var Timer          = $famous['famous/utilities/Timer'           ];
 ```
   
+### Animations
+What would a high performance app be without animations? Famo.us is packed with them, which makes it easy to get started. Here's one for animating the image on the front.
+
+```javascript
+  /*
+   * @OnClick: Sets the opacity and scale for the front image when user clicks "Next" btn
+   * 1) Turns opacity invisible quickly before returning to original opacity, revealing new Pokemon
+   * 2) Turns scale down before quickly turning it back up to original size
+   */
+  $scope.frontImgAnim = function() {
+    var hideDuration   =  200;
+    var returnDuration = 1300;
+
+    $scope.opac.imgFront.    set(0,           {duration: hideDuration,   curve: "easeIn"},
+      function returnToOrigOpacity() {
+        $scope.opac.imgFront.set(1,           {duration: returnDuration, curve: "easeIn"})
+      }
+    );
+    $scope.scale.imgFront    .set([0.5, 0.5], {duration: hideDuration,   curve: "easeIn"},
+      function returnToOrigSize() {
+        $scope.scale.imgFront.set([0.8, 0.8], {duration: returnDuration, curve: "easeIn"})
+      }
+    )
+  };
+  ```
   
+  There are several curve types you can use here. [Check out the docs for more info.](https://famo.us/integrations/angular/docs/unstable/api/directive/faAnimation/) I'm also usinga callback function, *returnToOrigSize* to have the image grow and then shrink back to the original size. 
+
 
 ## Points of frustration
 ----------
