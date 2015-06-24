@@ -101,14 +101,96 @@ You may notice that I also have a few other functions here, such as *capitalizeF
   The databse also returns multiple types for certain pokemon, such as Charizard, who is flying as well as fire. To keep things simple though, I only wanted to return one from the database. 
   
   ```javascript
-  $scope.types           = { name: "Grass" }        ;
+  $scope.types      = { name: "Grass" }        ;
   
   var firstType     = data.types[0].name;
   ```
   
   
-  #### Drawing it to the screen
+### Drawing it to the screen
 
+Famo.us has two waves of drawing content to the screen, by creating "surfaces", which are the elements that contain your text, images, etc.:
+
+1. JavaScript 
+2. FA-Directives (HTML)
+
+I didn't use JavaScript to draw the surfaces in this app, instead I chose to only use FA (Famous-Angular) Directives, such as:
+
+```HTML
+        <!-- Name-->
+        <fa-modifier
+            fa-origin    ="origin.center"
+            fa-align     ="align.frontName"
+            fa-size      ="size.frontName"
+            fa-translate ="trans.topLayer">
+            <fa-surface
+                class    ="front-name-text">
+                {{name}}
+            </fa-surface>
+        </fa-modifier>
+```
+
+The name above the Pokemon on the front screen.
+
+You'll notice that the surface is wrapped by a **fa-modifier**. [You can read about those here](https://famo.us/integrations/angular/docs/unstable/api/directive/faModifier/) but they essentally adjust the properties of a surface, such as alignment, size, and origin. It took me a while to wrap my head around the difference between alignment and origin, so here's how I came to understand it:
+
+**Origin**
+The reference point on any surface. If I want to draw a rectangle and move it around the screen, I need to decide which point on that rectangle will be my starting point. The [Famo.us docs](https://famo.us/guides/layout) explain it well. The values are laid out as such:
+
+```javascript
+  $scope.origin          = {
+                         // X    Y 
+   topLeft:                [0,   0  ],
+   topRight:               [1,   0  ],
+   center:                 [0.5, 0.5],
+   bottomLeft:             [0,   1  ],
+   bottomRight:            [1,   1  ]
+  };
+  ```
+
+**Alignment**
+A surface's location on the screen. When you make changes to the alignment, it is using the origin as the reference point to start from. 
+
+
+```javascript
+  $scope.align          =  {
+                          // X                          Y 
+    frontName:             [0.50,                     0.10],
+    frontImg:              [0.50,                     0.40],
+    backImg:               [0.5,                      0.38],
+    center:                [0.50,                     0.50]
+  };
+  ```
+
+## Points of frustration
+----------
+I ran into a few issues a long the way.
+
+1. FA-Directies have their properties set as strings
+```html
+ fa-origin    ="origin.center"
+```
+If you have a spelling error, the app will just use the default values for that property. This snagged me several times, which is why you see I set all of my properties as an object, such as *align.frontName*, to make it easier to read. 
+
+2. Adding classes
+In FA-Directives you add multiple classes as strings, and they are NOT comma separated.
+```html
+            <fa-surface
+                class    ="one-edge-shadow center-align next-btn"
+                ng-click ="infoBtnPressAnim(); flip()">
+                {{infoBtnText}}
+            </fa-surface>
+```
+If you try to add classes by creating surfaces in JavaScript, you pass in an array of strings:
+```javascript
+    var logo = new Surface({
+        properties: {
+             ...
+        },
+        classes: ['backfaceVisibility, class-two'] 
+    });
+```
+It took me a while to understand that, as I only found the solution [in this thread].(https://github.com/Famous/famous-angular/issues/150)
 
 ----------
 ## Resources
