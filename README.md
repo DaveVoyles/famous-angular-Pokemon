@@ -6,6 +6,8 @@ Sample project for using Famo.us + Angular to create a mobile application
 ----------
 ### Objective
 
+*[View the project in your browser](http://famous-angular-pokemon.azurewebsites.net/app/#/)*
+
 I love high performance JavaScript, and have faith that others will finally come around and understand its true potential someday too. Famo.us allows you to maintain a silky smooth 60 Frames Per Second while having fluid animations on screen. Famo.us does this by utilizing the CSS3 primitive -webkit-transform: matrix3d, which lets the framework compute the composite matrix and skip the browser’s renderer. No plug-in, no download, no hack. By appending this to each DIV, developers can render the composite matrix and go straight to the GPU. 
 
 I go more in depth when discussing the ins-and-outs of Famo.us in an [earlier blog post.](http://www.davevoyles.com/creating-a-mobile-app-with-famo-us-and-manifoldjs/) Thanks again to [Zack Brown](https://twitter.com/zackaboo) for all of your assistance with this!
@@ -49,7 +51,7 @@ I pull all of the information from the [PokeAPI](http://pokeapi.co/), which has 
 
 Each time the user presses the **Next** button, a random number is generated between a min / max value that I've defined (say, 1-20), and it pulls a pokemon from the database which matches that number. Here's what it looks like:
 
-*http://pokeapi.co/api/v1/pokemon/1/* returns a JSON object for Bulbasaur. [You can play wit htheir API here.](http://pokeapi.co/)
+*http://pokeapi.co/api/v1/pokemon/1/* returns a JSON object for Bulbasaur. [You can play with their API here.](http://pokeapi.co/)
 
 #### Looping through the data
 
