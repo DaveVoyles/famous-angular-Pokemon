@@ -51,7 +51,9 @@ The project is designed to work on mobile devices, so use the mobile emulator in
 ![](https://dl.dropboxusercontent.com/s/23x36anflarivuf/Screenshot%202015-06-24%2015.22.24.png?dl=0)
 ![](https://dl.dropboxusercontent.com/s/lh66rbv4b413bx9/Screenshot%202015-06-24%2015.26.45.png?dl=0)
 
+
 And here is how it looks in the iOS similator via Xcode:
+
 ![](https://dl.dropboxusercontent.com/s/urj5q6csj3kgtli/Screenshot%202015-06-24%2017.26.03.png?dl=0)
 ![](https://dl.dropboxusercontent.com/s/u0wlhuyog04b84y/Screenshot%202015-06-24%2017.25.55.png?dl=0)
 
