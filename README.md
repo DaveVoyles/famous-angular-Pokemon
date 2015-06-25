@@ -30,7 +30,7 @@ My goal for this project to illustrate how easily you can create HTML5 / JS proj
 - Mac (OS X)
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [Cordova](https://cordova.apache.org/docs/en/4.0.0/guide_cli_index.md.html) 
-- 
+
 You could also do this on Windows just as easily using [Visual Studio tools for Cordova.](http://www.davevoyles.com/apache-cordova-integrated-visual-studio-multi-device-hybrid-app-development/) 
 
 
@@ -52,7 +52,7 @@ The project is designed to work on mobile devices, so use the mobile emulator in
 ![](https://dl.dropboxusercontent.com/s/lh66rbv4b413bx9/Screenshot%202015-06-24%2015.26.45.png?dl=0)
 
 
-And here is how it looks in the iOS similator via Xcode:
+And here is how it looks in the iOS simulator via Xcode:
 
 ![](https://dl.dropboxusercontent.com/s/urj5q6csj3kgtli/Screenshot%202015-06-24%2017.26.03.png?dl=0)
 ![](https://dl.dropboxusercontent.com/s/u0wlhuyog04b84y/Screenshot%202015-06-24%2017.25.55.png?dl=0)
