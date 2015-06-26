@@ -39,10 +39,10 @@ My goal for this project to illustrate how easily you can create HTML5 / JS proj
 1. Start your web server
 2. Navigate to **famous-angular-Pokemon/app/**
 
-The project is designed to work on mobile devices, so use the mobile emulator in your browser to get the correct view. Here's what it would look like on an iPhone 6 (375x667):
+The project is designed to work on mobile devices, so use the mobile emulator in your browser to get the correct view. Here's what it would look like on an iPhone 6 inside the emulator via the Chrome desktop browser (375x667):
 
-![](https://dl.dropboxusercontent.com/s/np5ne0uldljiz5m/Screenshot%202015-06-24%2015.22.24.png?dl=0)
-![](https://dl.dropboxusercontent.com/s/v4hoj6w8pz6jcdw/Screenshot%202015-06-24%2015.26.45.png?dl=0)
+![](https://dl.dropboxusercontent.com/s/23x36anflarivuf/Screenshot%202015-06-24%2015.22.24.png?dl=0)
+![](https://dl.dropboxusercontent.com/s/lh66rbv4b413bx9/Screenshot%202015-06-24%2015.26.45.png?dl=0)
 
 
 ### Still to do:
