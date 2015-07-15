@@ -7,6 +7,7 @@ Sample project for using Famo.us + Angular to create a mobile application
 ### Objective
 
 *[View the project in your browser](http://famous-angular-pokemon.azurewebsites.net/app/#/)*
+
 *[Learn how to turn this into a Cordova app for mobile platforms](https://github.com/DaveVoyles/famous-angular-Pokemon)*
 
 I love high performance JavaScript, and have faith that others will finally come around and understand its true potential someday too. Famo.us allows you to maintain a silky smooth 60 Frames Per Second while having fluid animations on screen. Famo.us does this by utilizing the CSS3 primitive -webkit-transform: matrix3d, which lets the framework compute the composite matrix and skip the browser’s renderer. No plug-in, no download, no hack. By appending this to each DIV, developers can render the composite matrix and go straight to the GPU. 
