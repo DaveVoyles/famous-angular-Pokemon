@@ -15,6 +15,7 @@ I love high performance JavaScript, and have faith that others will finally come
 I go more in depth when discussing the ins-and-outs of Famo.us in an [earlier blog post.](http://www.davevoyles.com/creating-a-mobile-app-with-famo-us-and-manifoldjs/) Thanks again to [Zack Brown](https://twitter.com/zackaboo) for all of your assistance with this!
 
 Want to test it out? Spin up your own Azure web server with this project by clicking this button.
+
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
 
 ### By the end of this project you will be able to:
